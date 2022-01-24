@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        @Html.ActionLink("Create New", "Create")
+    </div>
+    <div class="col-xs-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ThumbNailPhoto</th>
+                    <th>Name</th>
+                    <th>ProductNumber</th>
+                    <th>Color</th>
+                    <th>StandardCost</th>
+                    <th>ListPrice</th>
+                    <th>Size</th>
+                    <th>Weight</th>
+                    <th>ModifiedDate</th>
+                    <th>ProductCategory</th>
+                    <th>ProductModel</th>
+               
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+
+
+        $(document).ready(function () {
+            var editor;
+            $('table').DataTable({
+                "bServerSide": true,
+                "sAjaxSource": "/Products/AjaxMethod",
+                "bProcessing": true,
+                "bLenghthChange": false,
+                "sPaginationType": "full_numbers",
+                "responsive": true,
+                "bSearchable": true,
+                "aoColumns": [
+                    {
+                        "data": "Image", "render": function (data) {
+                            return '<img src="../Content/Assets/product.jpg" style="height:100px"/>';
+                        },
+                        "autoWidth": true,
+                        "serchable": false
+                    },
+                    {
+                        "data": "Name",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "ProductNumber",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "Color",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "StandardCost",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "ListPrice",
+                        "autoWidth": true,
+                        "serchable": false
+                    },
+                    {
+                        "data": "Size",
+                        "autoWidth": true,
+                        "serchable": false
+                    },
+                    {
+                        "data": "Weight",
+                        "autoWidth": true,
+                        "serchable": false
+                    },
+                    {
+                        "data": "ModifiedDate",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "ProductCategory",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "ProductModel",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                  
+
+
+                ],
+            });
+
+        })
+    </script>
+}
