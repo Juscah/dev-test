@@ -26,6 +26,7 @@
                     <th>PasswordSalt</th>
                     <th>rowguid</th>
                     <th>ModifiedDate</th>
+                    <th></th>
 
                 </tr>
             </thead>
@@ -49,7 +50,7 @@
                 "responsive": true,
                 "bSearchable": true,
                 "aoColumns": [
-                    
+
                     {
                         "data": "CustomerID",
                         "autoWidth": true,
@@ -125,9 +126,12 @@
                         "autoWidth": true,
                         "serchable": true
                     },
-
-
-
+                    {
+                        render: function(data, type, full, meta) {
+                            return '<a class="btn btn-info" href="@Url.Action("Edit", "Customers")/' + full.CustomerID + '">Edit</a>';
+                        },
+                        sortable: false
+                    },
                 ],
             });
 

@@ -22,7 +22,8 @@
                     <th>ModifiedDate</th>
                     <th>ProductCategory</th>
                     <th>ProductModel</th>
-               
+                    <th></th>
+
                 </tr>
             </thead>
         </table>
@@ -102,9 +103,12 @@
                         "autoWidth": true,
                         "serchable": true
                     },
-                  
-
-
+                    {
+                        render: function(data, type, full, meta) {
+                            return '<a class="btn btn-info" href="@Url.Action("Edit", "Products")/' + full.ProductID + '">Edit</a>';
+                        },
+                        sortable: false
+                    },
                 ],
             });
 
