@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "Customers";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        @Html.ActionLink("Create New", "Create")
+    </div>
+    <div class="col-xs-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>CustomerID</th>
+                    <th>NameStyle</th>
+                    <th>Title</th>
+                    <th>FirstName</th>
+                    <th>MiddleName</th>
+                    <th>LastName</th>
+                    <th>Suffix</th>
+                    <th>CompanyName</th>
+                    <th>SalesPerson</th>
+                    <th>EmailAddress</th>
+                    <th>Phone</th>
+                    <th>PasswordHash</th>
+                    <th>PasswordSalt</th>
+                    <th>rowguid</th>
+                    <th>ModifiedDate</th>
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+
+
+        $(document).ready(function () {
+            var editor;
+            $('table').DataTable({
+                "bServerSide": true,
+                "sAjaxSource": "/Customers/AjaxMethod",
+                "bProcessing": true,
+                "bLenghthChange": false,
+                "sPaginationType": "full_numbers",
+                "responsive": true,
+                "bSearchable": true,
+                "aoColumns": [
+                    
+                    {
+                        "data": "CustomerID",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "NameStyle",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "Title",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "FirstName",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "MiddleName",
+                        "autoWidth": true,
+                        "serchable": false
+                    },
+                    {
+                        "data": "LastName",
+                        "autoWidth": true,
+                        "serchable": false
+                    },
+                    {
+                        "data": "Suffix",
+                        "autoWidth": true,
+                        "serchable": false
+                    },
+                    {
+                        "data": "CompanyName",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "SalesPerson",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "EmailAddress",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "Phone",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "PasswordHash",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "PasswordSalt",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "rowguid",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+                    {
+                        "data": "ModifiedDate",
+                        "autoWidth": true,
+                        "serchable": true
+                    },
+
+
+
+                ],
+            });
+
+        })
+    </script>
+}
